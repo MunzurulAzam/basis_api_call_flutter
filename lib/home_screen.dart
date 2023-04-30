@@ -19,10 +19,10 @@ class _HomScreenState extends State<HomScreen> {
   List<PostsModel> postList = [];
   Future<List<PostsModel>> getPostApi () async{
 
-    final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
+    final resposne = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
 
-    var data = jsonDecode(response.body.toString());
-    if(response.statusCode == 200){
+    var data = jsonDecode(resposne.body.toString());
+    if(resposne.statusCode == 200){
 
       for(Map i in data){
         postList.add(PostsModel.fromJson(i));
@@ -54,7 +54,7 @@ class _HomScreenState extends State<HomScreen> {
               builder: (context, snapshot){
 
                 if(!snapshot.hasData){
-                  return Text("loding");
+                  return Text("not comming");
 
                 }else{
                   
@@ -62,7 +62,7 @@ class _HomScreenState extends State<HomScreen> {
                       itemCount: postList.length,
                       itemBuilder: (context, index){
 
-                    return Text(index.toString());
+                    return Text(postList[index].title.toString());
 
                   });
 
