@@ -43,7 +43,7 @@ class _HomScreenState extends State<HomScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Api Course'),
+        title: Text('api data'),
       ),
       body: Column(
         children: [
